@@ -25,7 +25,7 @@ const Notifications = () => {
   const classes = useStyles();
 
   return (
-    <Grid container xs={12} md={3} className={classes.root} spacing={3}>
+    <Grid item xs={12} md={3} className={classes.root}>
       <Grid item xs={12}>
         <Paper className={classes.paper}>Notifications</Paper>
       </Grid>

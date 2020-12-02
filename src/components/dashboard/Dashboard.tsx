@@ -1,18 +1,33 @@
 import React from "react";
 
+// third party
+import Grid from "@material-ui/core/Grid";
+import { connect } from "react-redux";
+
 // App modules
 import Notifications from "./Notifications";
-import ProjectList from "../plans/ProjectList";
+import PlanList from "../plans/PlanList";
+import { RootState } from "../../store/reducers/rootReducer";
 
-class Dashboard extends React.Component {
+class Dashboard extends React.Component<{ plans: RootState["plan"]["plans"] }> {
   render() {
+    const { plans } = this.props;
+
     return (
       <div className="container">
-        <ProjectList />
-        <Notifications />
+        <Grid container>
+          <PlanList plans={plans} />
+          <Notifications />
+        </Grid>
       </div>
     );
   }
 }
 
-export default Dashboard;
+const mapStateToProps = (state: RootState) => {
+  return {
+    plans: state.plan.plans,
+  };
+};
+
+export default connect(mapStateToProps)(Dashboard);

@@ -4,8 +4,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import ArrowRightIcon from "@material-ui/icons/ArrowRight";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -24,29 +25,44 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const SignedOutLinks = () => {
   const classes = useStyles();
+  const matches = useMediaQuery("(max-width:600px)");
 
   return (
     <ul className={classes.root}>
       <li className={classes.button}>
-        <NavLink to="/" style={{ color: "white", textDecoration: "none" }}>
-          <Button
-            startIcon={<ArrowRightIcon />}
-            variant="contained"
-            color="secondary"
-          >
-            Sign Up
-          </Button>
+        <NavLink
+          to="/signup"
+          style={{ color: "white", textDecoration: "none" }}
+        >
+          {matches ? (
+            <PersonAddIcon color="secondary" />
+          ) : (
+            <Button
+              startIcon={<PersonAddIcon />}
+              variant="contained"
+              color="secondary"
+            >
+              SIGN UP
+            </Button>
+          )}
         </NavLink>
       </li>
       <li className={classes.button}>
-        <NavLink to="/" style={{ color: "white", textDecoration: "none" }}>
-          <Button
-            startIcon={<AccountCircleIcon />}
-            variant="contained"
-            color="secondary"
-          >
-            Log In
-          </Button>
+        <NavLink
+          to="/signin"
+          style={{ color: "white", textDecoration: "none" }}
+        >
+          {matches ? (
+            <AccountCircleIcon color="secondary" />
+          ) : (
+            <Button
+              startIcon={<AccountCircleIcon />}
+              variant="contained"
+              color="secondary"
+            >
+              LOG IN
+            </Button>
+          )}
         </NavLink>
       </li>
     </ul>

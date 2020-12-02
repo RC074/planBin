@@ -35,7 +35,10 @@ const SignedInLinks = () => {
   return (
     <ul className={classes.root}>
       <li className={classes.button}>
-        <NavLink to="/" style={{ color: "white", textDecoration: "none" }}>
+        <NavLink
+          to="/create"
+          style={{ color: "white", textDecoration: "none" }}
+        >
           {matches ? (
             <AddCircleIcon color="secondary" />
           ) : (

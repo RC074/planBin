@@ -8,4 +8,7 @@ body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+  background: url("./images/mainbg.png") no-repeat;
+  background-size: cover;
+  background-position: center;
 }

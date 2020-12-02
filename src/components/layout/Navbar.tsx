@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       paddingLeft: 0,
       paddingRight: 0,
+      backgroundColor: theme.palette.primary.dark,
     },
     bar: {
       padding: "8px 0",
@@ -33,15 +34,15 @@ const Navbar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar color="primary" position="static">
+      <AppBar color="transparent" position="static">
         <Toolbar className={classes.bar}>
           <Typography variant="h4" className={classes.title}>
             <Link style={{ color: "white", textDecoration: "none" }} to="/">
               PlanBin
             </Link>
           </Typography>
-          <SignedInLinks />
-          {/* <SignedOutLinks /> */}
+          {/* <SignedInLinks /> */}
+          <SignedOutLinks />
         </Toolbar>
       </AppBar>
     </div>
